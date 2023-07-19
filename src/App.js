@@ -2,6 +2,8 @@ import Reacts, { useState } from "react";
 import PokemonsListPage from "./Pages/PokemonsListPage/PokemonsListPage";
 import PokedexPage from "./Pages/PokedexPage/PokedexPage";
 import PokemonDetailPage from "./Pages/PokemonDetailPage/PokemonDetailPage";
+import Router from "./Routes/Router";
+
 
 function App() {
   const [tela, setTela] = useState("home")
@@ -24,7 +26,8 @@ function App() {
 
   return (
     <>
-      {renderizacaoDeTela()}
+      <Router/>
+      {/* {renderizacaoDeTela()} */}
       {/* <PokemonsListPage/> */}
       {/* <PokedexPage/> */}
       {/* <PokemonDetailPage/> */}
