@@ -1,17 +1,14 @@
 import Header from "../../Components/Header/Header";
 import { BackPoke, BasicStats, ContainerDetailPages, DetailsPokemons, FrontPoke, Moves, Type1, Type2 } from "./PokemonDetailPageStyle";
 
-const PokemonDetailPage = (props) => {
+const PokemonDetailPage = () => {
 
-  const mostrarTelaHome = () =>{
-    props.mudarTela("home")
-  }
 
   return (
     <>
         <Header
         textButton='Excluir da Pokédex'
-        functionLink={mostrarTelaHome} textLink='Todos os Pokémons'/>
+        textLink='Todos os Pokémons'/>
       <ContainerDetailPages>
         <h1>Detalhes</h1>
         <DetailsPokemons>

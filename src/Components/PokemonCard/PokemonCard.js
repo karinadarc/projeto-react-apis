@@ -1,12 +1,17 @@
 import React from "react";
 import { CardStyle } from "./PokemonCardStyle";
+import { useNavigate } from "react-router-dom";
+import { goToDetail} from "../../Routes/Coordinator";
 
 
-const PokemonCard = ({pokemon,textButtonCard, functionDetalhes }) => {
+const PokemonCard = ({pokemon,textButtonCard }) => {
+
+  const navigate = useNavigate()
+
   return (
     <CardStyle>
       <p>{pokemon}</p>
-      <a onClick={functionDetalhes} href="javascript:void(0)">detalhes</a>
+      <a onClick={() =>goToDetail(navigate)} href="javascript:void(0)">detalhes</a>
       <button>{textButtonCard}</button>
     </CardStyle>
   );
