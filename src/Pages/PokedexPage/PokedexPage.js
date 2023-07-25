@@ -21,11 +21,11 @@ const PokedexPage = (props) => {
         <h1>Meus Pokémons</h1>
       <MyPokemonsList>
         <PokemonCard functionDetalhes={mostrarTelaDetalhes} pokemon="Bulbasaur" textButtonCard="Capturar" />
+        {/* <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" />
         <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" />
         <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" />
         <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" />
-        <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" />
-        <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" />
+        <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" /> */}
       </MyPokemonsList>
       </ContainerPokedex>
     </>

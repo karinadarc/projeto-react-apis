@@ -1,8 +1,15 @@
+
 import Header from "../../Components/Header/Header";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 import { ContainerCards, ListPokemons } from "./PokemonsListPageStyle";
+import useRequestData from "../../Hooks/useRequestData";
+import { useState } from "react";
 
 const PokemonsListPage = () => {
+
+  const [pokeapi, isLoading, isError] = useRequestData("/pokemon")
+
+
   return (
     <>
       <Header textButton="Pokemon" />
@@ -10,10 +17,19 @@ const PokemonsListPage = () => {
       <ContainerCards>
         <h1>Todos Pokémons</h1>
         <ListPokemons>
-          <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" />
-          <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" />
-          <PokemonCard pokemon="Bulbasaur" textButtonCard="Capturar" />
-    
+          {isError? <p>Erro!!!</p>:
+           isLoading? <p>Carregando....</p>:
+           pokeapi.results.map((pokemon)=>{
+            return(
+              <PokemonCard 
+              key={pokemon.name}
+              pokemonName={pokemon.name} 
+              textButtonCard="Capturar" />
+
+            )
+
+           })}
+          
         </ListPokemons>
       </ContainerCards>
     </>
