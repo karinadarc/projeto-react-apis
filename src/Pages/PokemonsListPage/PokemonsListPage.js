@@ -37,3 +37,5 @@ const PokemonsListPage = () => {
 };
 
 export default PokemonsListPage;
+
+

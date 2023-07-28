@@ -13,7 +13,7 @@ const Header = ({ textButton, textLink, functionButton, functionLink}) => {
       <img
         src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png"
         height="60px"></img>
-      {textButton && <button onClick={() => goToPokedex(navigate, "mypokedex") } >{textButton}</button>} 
+      {textButton && <button onClick={() => goToPokedex(navigate) } >{textButton}</button>} 
     </HeaderStyle>
   );
 };

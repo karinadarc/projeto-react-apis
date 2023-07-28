@@ -59,7 +59,7 @@ const PokemonCard = ({ pokemonName, textButtonCard }) => {
           ></ImagemPokemon>
 
           <ContainerLinkButton>
-            <a onClick={() => goToDetail(navigate)} href="javascript:void(0)">
+            <a onClick={() => goToDetail(navigate,infosPokemon.id)} href="javascript:void(0)">
               detalhes
             </a>
             <ButtonCapturar>{textButtonCard}</ButtonCapturar>
