@@ -60,6 +60,7 @@ export const ContainerDescricaoCard = styled.div`
   grid-area: descricao;
 `;
 export const NomePokemonStyle = styled.p`
+  text-transform: capitalize;
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 600;

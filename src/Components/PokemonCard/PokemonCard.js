@@ -41,7 +41,7 @@ const PokemonCard = ({ pokemonName, textButtonCard }) => {
       ) : (
         <>
           <ContainerDescricaoCard>
-            <p>{infosPokemon.id}</p>
+            <p>#{infosPokemon.id.toString().padStart(3,'0')}</p>
             <NomePokemonStyle>{pokemonName}</NomePokemonStyle>
           </ContainerDescricaoCard>
 
@@ -59,7 +59,7 @@ const PokemonCard = ({ pokemonName, textButtonCard }) => {
           ></ImagemPokemon>
 
           <ContainerLinkButton>
-            <a onClick={() => goToDetail(navigate,infosPokemon.id)} href="javascript:void(0)">
+            <a onClick={() => goToDetail(navigate,infosPokemon.name)} href="javascript:void(0)">
               detalhes
             </a>
             <ButtonCapturar>{textButtonCard}</ButtonCapturar>

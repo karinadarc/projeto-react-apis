@@ -7,6 +7,7 @@ background-color: grey;
 `
 
 export const DetailsPokemons = styled.section`
+background-color:${(props) => props.color};
 display:grid;
 width: 1389.142822265625px;
 height: 663px;
@@ -16,13 +17,13 @@ border-radius: 12px;
 border-width: [object Object]px, [object Object]px, [object Object]px, [object Object]px;
 border-style: solid;
 border-color: #00000024;
-grid-template-areas: "frontPoke basicStats type1 type2"
+grid-template-areas: "frontPoke basicStats type1 type1"
                      "frontPoke basicStats moves moves"
                      "backPoke  basicStats moves moves"
                      "backPoke  basicStats moves moves";
 `
                          
-export const FrontPoke = styled.div`
+export const FrontPoke = styled.img`
 width: 282px;
 height: 282px;
 top: 26px;
@@ -34,7 +35,7 @@ border: 2px solid #FFFFFF;
 grid-area:frontPoke;
 `
 
-export const BackPoke = styled.div`
+export const BackPoke = styled.img`
 width: 282px;
 height: 282px;
 top: 355px;
@@ -47,7 +48,7 @@ grid-area: backPoke;
 
 `
 
-export const BasicStats = styled.div`
+export const BaseStats = styled.div`
 width: 343px;
 height: 613px;
 top: 24px;
@@ -57,10 +58,10 @@ background: #FFFFFF;
 grid-area: basicStats;
 
 `
-export const Type1 = styled.div`
-width: Hug (91px);
-height: Hug (31px);
-top: 106px;
+export const TypesDetail = styled.div`
+/* width: Hug (91px);
+height: Hug (31px); */
+/* top: 106px;
 left: 774px;
 padding: 5px 8px 5px 8px;
 border-radius: 8px;
@@ -68,7 +69,7 @@ border: 1px;
 gap: 17px;
 background: linear-gradient(0deg, #70B873, #70B873),
 linear-gradient(0deg, rgba(255, 255, 255, 0.47), rgba(255, 255, 255, 0.47));
-border: 1px solid #FFFFFF78;
+border: 1px solid #FFFFFF78; */
 grid-area: type1;
 `
 export const Type2 = styled.div`
