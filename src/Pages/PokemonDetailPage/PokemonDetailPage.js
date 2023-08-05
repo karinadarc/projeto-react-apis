@@ -8,6 +8,8 @@ import {
   ContainerDetailPages,
   DetailsPokemons,
   FrontPoke,
+  ImgContainerPokemon,
+  ImgPokemonDetail,
   Moves,
   Type1,
   Type2,
@@ -32,65 +34,67 @@ const PokemonDetailPage = () => {
 
       <ContainerDetailPages>
         <h1>Detalhes</h1>
-          {isError ? (
-            <p>Erro!!!</p>
-          ) : isLoading ? (
-            <p>Carregando....</p>
-          ) : (
-            <DetailsPokemons
-            color={CardColor[pokeapi.types[0].type.name]}
-            >
-              <FrontPoke
-                src={
-                  pokeapi.sprites.versions["generation-v"]["black-white"]
-                    .animated.front_default
-                }
-              />
+        {isError ? (
+          <p>Erro!!!</p>
+        ) : isLoading ? (
+          <p>Carregando....</p>
+        ) : (
+          <DetailsPokemons color={CardColor[pokeapi.types[0].type.name]}>
+            <FrontPoke
+              src={
+                pokeapi.sprites.versions["generation-v"]["black-white"].animated
+                  .front_default
+              }
+            />
 
-              <BackPoke
-                src={
-                  pokeapi.sprites.versions["generation-v"]["black-white"]
-                    .animated.back_default
-                }
-              />
-              <BaseStats>
+            <BackPoke
+              src={
+                pokeapi.sprites.versions["generation-v"]["black-white"].animated
+                  .back_default
+              }
+            />
+            <BaseStats>
               <h2>Base Stats</h2>
-                {pokeapi.stats.map((stat, index) => {
-                  return (
-                    <p key={index}>
-                      <span>{stat.stat.name}</span>
-                      <span>{stat.base_stat}</span>
-                      <progress
-                        value={stat.base_stat}
-                        max="100"
-                      ></progress>
-                    </p>
-                  );
-                })}
-              </BaseStats>
+              {pokeapi.stats.map((stat, index) => {
+                return (
+                  <p key={index}>
+                    <span>{stat.stat.name}</span>
+                    <span>{stat.base_stat}</span>
+                    <progress value={stat.base_stat} max="100"></progress>
+                  </p>
+                );
+              })}
+              <p>
+                Total:
+                {pokeapi.stats.reduce(
+                  (total, stat) => total + stat.base_stat,0
+                )}
+              </p>
+            </BaseStats>
 
-              <TypesDetail>
-                <p>
-                  #{pokeapi.id.toString().padStart(3,'0')}
-                </p>
-                <p>
-                  {pokeapi.name}
-                </p>
-           {pokeapi.types.map((obj) => {
-            return (
-              <TypeImage
-                key={obj.type.name}
-                pokemonType={obj.type.name}
+            <TypesDetail>
+              <p>#{pokeapi.id.toString().padStart(3, "0")}</p>
+              <p>{pokeapi.name}</p>
+              {pokeapi.types.map((obj) => {
+                return (
+                  <TypeImage key={obj.type.name} pokemonType={obj.type.name} />
+                );
+              })}
+            </TypesDetail>
+
+            <Moves>
+              <h2>Moves:</h2>
+              {pokeapi.moves.slice(0, 5).map((move) => {
+                return <p key={move}>{move.move.name}</p>;
+              })}
+            </Moves>
+            <ImgContainerPokemon>
+              <ImgPokemonDetail
+                src={pokeapi.sprites.other["official-artwork"].front_default}
               />
-            );
-          })}
-
-            </TypesDetail> 
-
-            {/* <Moves>Moves</Moves> */}
-            </DetailsPokemons>
-          )}
-   
+            </ImgContainerPokemon>
+          </DetailsPokemons>
+        )}
       </ContainerDetailPages>
     </>
   );

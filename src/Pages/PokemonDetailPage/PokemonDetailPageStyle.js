@@ -1,99 +1,84 @@
 import { styled } from "styled-components";
 
 export const ContainerDetailPages = styled.section`
-background-color: grey;
-
-
-`
+  background-color: grey;
+  display:flex;
+  flex-direction:column;
+`;
 
 export const DetailsPokemons = styled.section`
-background-color:${(props) => props.color};
-display:grid;
-width: 1389.142822265625px;
-height: 663px;
-top: 348px;
-left: 25px;
-border-radius: 12px;
-border-width: [object Object]px, [object Object]px, [object Object]px, [object Object]px;
-border-style: solid;
-border-color: #00000024;
-grid-template-areas: "frontPoke basicStats type1 type1"
-                     "frontPoke basicStats moves moves"
-                     "backPoke  basicStats moves moves"
-                     "backPoke  basicStats moves moves";
-`
-                         
+  background-color: ${(props) => props.color};
+  display: grid;
+  width: 1389.142822265625px;
+  height: 663px;
+  top: 348px;
+  left: 25px;
+  border-radius: 12px;
+  align-self: center;
+  border-style: solid;
+  border-color: #00000024;
+  grid-template-areas:
+    "frontPoke basicStats typesDetail imgContainerPokemon"
+    "frontPoke basicStats moves   imgContainerPokemon    "
+    "backPoke  basicStats moves    imgContainerPokemon  "
+    "backPoke  basicStats moves   imgContainerPokemon   ";
+`;
+
 export const FrontPoke = styled.img`
-width: 282px;
-height: 282px;
-top: 26px;
-left: 44px;
-border-radius: 8px;
-border: 2px;
-background: #FFFFFF;
-border: 2px solid #FFFFFF;
-grid-area:frontPoke;
-`
+  width: 15vw;
+  height: 35vh;
+  /* top: 26px; */
+  /* left: 44px; */
+  border-radius: 8px;
+  border: 2px;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  grid-area: frontPoke;
+`;
 
 export const BackPoke = styled.img`
-width: 282px;
-height: 282px;
-top: 355px;
-left: 44px;
-border-radius: 8px;
-border: 2px;
-border: 2px solid #FFFFFF;
-background: #FFFFFF;
-grid-area: backPoke;
-
-`
+  width: 15vw;
+  height: 35vh;
+  /* top: 355px; */
+  /* left: 44px; */
+  border-radius: 8px;
+  border: 2px;
+  border: 2px solid #ffffff;
+  background: #ffffff;
+  grid-area: backPoke;
+`;
 
 export const BaseStats = styled.div`
-width: 343px;
-height: 613px;
-top: 24px;
-left: 360px;
-border-radius: 12px;
-background: #FFFFFF;
-grid-area: basicStats;
-
-`
+  width: 343px;
+  height: 613px;
+  top: 24px;
+  left: 360px;
+  border-radius: 12px;
+  background: #ffffff;
+  grid-area: basicStats;
+`;
 export const TypesDetail = styled.div`
-/* width: Hug (91px);
-height: Hug (31px); */
-/* top: 106px;
-left: 774px;
-padding: 5px 8px 5px 8px;
-border-radius: 8px;
-border: 1px;
-gap: 17px;
-background: linear-gradient(0deg, #70B873, #70B873),
-linear-gradient(0deg, rgba(255, 255, 255, 0.47), rgba(255, 255, 255, 0.47));
-border: 1px solid #FFFFFF78; */
-grid-area: type1;
-`
-export const Type2 = styled.div`
- width: Hug (99px);
-height: Hug (31px);
-top: 107px;
-left: 883px; 
-padding: 5px 8px 5px 8px;
-border-radius: 8px;
-border: 1px;
-gap: 17px;
-background: linear-gradient(0deg, #AD61AE, #AD61AE),
-linear-gradient(0deg, rgba(255, 255, 255, 0.47), rgba(255, 255, 255, 0.47));
-border: 1px solid #FFFFFF78;
-grid-area: type2;
-`
+  grid-area: typesDetail;
+`;
+export const ImgPokemonDetail = styled.img`
+  width: 20vw;
+  height: 30vh;
+  position: relative;
+  top: -70px;
+  right: 0;
+  z-index: 100;
+`;
+export const ImgContainerPokemon = styled.div`
+  grid-area: imgContainerPokemon;
+  /* background-color:red; */
+`;
 
 export const Moves = styled.div`
- /* width: 292px; */
-height: 570px; 
-top: 184px;
-left: 771px;
-border-radius: 8px;
-background: #FFFFFF;
-grid-area: moves;
-`
-
+  /* width: 292px; */
+  height: 470px;
+  top: 184px;
+  left: 771px;
+  border-radius: 8px;
+  background: #ffffff;
+  grid-area: moves;
+`;
