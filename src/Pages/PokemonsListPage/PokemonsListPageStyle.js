@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const  ContainerCards= styled.article`
-background-color:grey;
+background-color:#5D5D5D;
 
 `
 

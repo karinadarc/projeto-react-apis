@@ -1,18 +1,76 @@
 import React from "react";
-import { CardStyle } from "./PokemonCardStyle";
+import {
+  ButtonCapturar,
+  CardStyle,
+  ContainerDescricaoCard,
+  ContainerLinkButton,
+  ImagemPokemon,
+  NomePokemonStyle,
+  TypeStyle,
+} from "./PokemonCardStyle";
 import { useNavigate } from "react-router-dom";
-import { goToDetail} from "../../Routes/Coordinator";
+import { goToDetail } from "../../Routes/Coordinator";
+import useRequestData from "../../Hooks/useRequestData";
+import { TypesColor } from "../../ColorCard/TypeColor";
+import { CardColor } from "../../ColorCard/CardColor";
 
+const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
+  //console.log(pokemon)
+  const [infosPokemon, isLoading, isError] = useRequestData(
+    `/pokemon/${pokemonName}`
+  );
 
-const PokemonCard = ({pokemon,textButtonCard }) => {
+  const handleClick = () =>{
+    functionButton(pokemonName)
+  }
+  
 
-  const navigate = useNavigate()
+  // console.log(TypesColor);
+
+  const navigate = useNavigate();
+
+  const getPrincialColor = () => {
+    if (!isLoading) {
+      return CardColor[infosPokemon.types[0].type.name];
+    } else {
+      return "#000";
+    }
+  };
 
   return (
-    <CardStyle>
-      <p>{pokemon}</p>
-      <a onClick={() =>goToDetail(navigate)} href="javascript:void(0)">detalhes</a>
-      <button>{textButtonCard}</button>
+    <CardStyle color={getPrincialColor()}>
+      {isError ? (
+        <p>Erro!!!</p>
+      ) : isLoading ? (
+        <p>Carregando....</p>
+      ) : (
+        <>
+          <ContainerDescricaoCard>
+            <p>#{infosPokemon.id.toString().padStart(3,'0')}</p>
+            <NomePokemonStyle>{pokemonName}</NomePokemonStyle>
+          </ContainerDescricaoCard>
+
+          {infosPokemon.types.map((type) => {
+            return (
+              <TypeStyle
+                key={type.type.name}
+                src={TypesColor[type.type.name]}
+              />
+            );
+          })}
+
+          <ImagemPokemon
+            src={infosPokemon.sprites.other["official-artwork"].front_default}
+          ></ImagemPokemon>
+
+          <ContainerLinkButton>
+            <a onClick={() => goToDetail(navigate,infosPokemon.name)} href="javascript:void(0)">
+              detalhes
+            </a>
+            <ButtonCapturar onClick={handleClick}>{textButtonCard}</ButtonCapturar>
+          </ContainerLinkButton>
+        </>
+      )}
     </CardStyle>
   );
 };
