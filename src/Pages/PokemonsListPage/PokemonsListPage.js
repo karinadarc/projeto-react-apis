@@ -5,6 +5,7 @@ import { ContainerCards, ListPokemons } from "./PokemonsListPageStyle";
 import useRequestData from "../../Hooks/useRequestData";
 import { useEffect, useState } from "react";
 
+
 const PokemonsListPage = () => {
   const [pokeapi, isLoading, isError] = useRequestData("/pokemon")
   const [capturedPokemons, setCapturedPokemons] = useState([])
@@ -57,7 +58,7 @@ const PokemonsListPage = () => {
               key={pokemon.name}
               pokemonName={pokemon.name} 
               textButtonCard="Capturar" 
-              capturePokemon={capturePokemon}
+              functionButton={capturePokemon}
               pokemon={pokemon.name}/>
 
             )
@@ -66,6 +67,7 @@ const PokemonsListPage = () => {
           
         </ListPokemons>
       </ContainerCards>
+      
     </>
   );
 };

@@ -7,6 +7,7 @@ import Router from "./Routes/Router";
 
 function App() {
   const [myPokedex, setMyPokedex] = useState([])
+  
 
   const onChangeListPokemons = (event) =>{
     setMyPokedex(event.target.value)

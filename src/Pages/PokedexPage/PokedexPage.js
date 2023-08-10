@@ -1,33 +1,38 @@
+import { useState } from "react";
 import Header from "../../Components/Header/Header";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 import useRequestData from "../../Hooks/useRequestData";
 import { ContainerPokedex, MyPokemonsList } from "./PokedexPageStyle";
 
 const PokedexPage = (props) => {
+  const [myPokemons, setMyPokemons] = useState(JSON.parse(localStorage.getItem("capturedPokemons") ?? []))
 
- const pokemonCapurado = () =>{
-  return ["bulbasaur", "ivysaur"]
- }
+  const getMyPokemons = () => myPokemons;
+ 
 
-  const mostrarTelaDetalhes = () =>{
-    props.mudarTela("detalhes")
+  const removerPokemon = (pokemonName) =>{
+    const novaListaPokemons = getMyPokemons().filter(pokeCapturado => pokeCapturado !== pokemonName);
+
+    localStorage.setItem("capturedPokemons", JSON.stringify(novaListaPokemons));
+    setMyPokemons(novaListaPokemons)
+ 
+    console.log(pokemonName)
   }
 
-  const mostrarTelaHome = () =>{
-    props.mudarTela('home')
-  }
 
   return (
     <>
-      <Header functionLink={mostrarTelaHome} textLink="Todos os Pokémons" />
+      <Header  textLink="Todos os Pokémons" />
       <ContainerPokedex>
         <h1>Meus Pokémons</h1>
       <MyPokemonsList>
-        {pokemonCapurado().map((pokeCapurado)=>{
+        {getMyPokemons().map((pokeCapurado)=>{
           return(
             <PokemonCard  
             key={pokeCapurado}
             pokemonName={pokeCapurado}
+            textButtonCard="Deletar" 
+            functionButton={removerPokemon}
              />
           )
          

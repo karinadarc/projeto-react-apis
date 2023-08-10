@@ -14,14 +14,14 @@ import useRequestData from "../../Hooks/useRequestData";
 import { TypesColor } from "../../ColorCard/TypeColor";
 import { CardColor } from "../../ColorCard/CardColor";
 
-const PokemonCard = ({ pokemonName, textButtonCard, capturePokemon }) => {
+const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
   //console.log(pokemon)
   const [infosPokemon, isLoading, isError] = useRequestData(
     `/pokemon/${pokemonName}`
   );
 
-  const handleCaptura = () =>{
-capturePokemon(pokemonName)
+  const handleClick = () =>{
+    functionButton(pokemonName)
   }
   
 
@@ -67,7 +67,7 @@ capturePokemon(pokemonName)
             <a onClick={() => goToDetail(navigate,infosPokemon.name)} href="javascript:void(0)">
               detalhes
             </a>
-            <ButtonCapturar onClick={handleCaptura}>{textButtonCard}</ButtonCapturar>
+            <ButtonCapturar onClick={handleClick}>{textButtonCard}</ButtonCapturar>
           </ContainerLinkButton>
         </>
       )}
