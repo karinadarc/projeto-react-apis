@@ -22,7 +22,7 @@ const PokedexPage = (props) => {
 
   return (
     <>
-      <Header  textLink="Todos os Pokémons" />
+      <Header  textLink="< Todos Pokémons" />
       <ContainerPokedex>
         <h1>Meus Pokémons</h1>
       <MyPokemonsList>

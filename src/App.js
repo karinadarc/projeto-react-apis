@@ -3,6 +3,8 @@ import PokemonsListPage from "./Pages/PokemonsListPage/PokemonsListPage";
 import PokedexPage from "./Pages/PokedexPage/PokedexPage";
 import PokemonDetailPage from "./Pages/PokemonDetailPage/PokemonDetailPage";
 import Router from "./Routes/Router";
+import { theme } from "./styles";
+import {ChakraProvider} from '@chakra-ui/react'
 
 
 function App() {
@@ -36,9 +38,9 @@ function App() {
   // }
 
   return (
-    <>
+     <ChakraProvider >
       <Router/>
-    </>
+     </ChakraProvider>
   );
 }
 

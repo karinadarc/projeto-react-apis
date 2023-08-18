@@ -3,7 +3,10 @@ import {
   ButtonCapturar,
   CardStyle,
   ContainerDescricaoCard,
+  ContainerImage,
   ContainerLinkButton,
+  ContainerTypes,
+  IdStyle,
   ImagemPokemon,
   NomePokemonStyle,
   TypeStyle,
@@ -46,10 +49,11 @@ const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
       ) : (
         <>
           <ContainerDescricaoCard>
-            <p>#{infosPokemon.id.toString().padStart(3,'0')}</p>
+            <IdStyle>#{infosPokemon.id.toString().padStart(3,'0')}</IdStyle>
             <NomePokemonStyle>{pokemonName}</NomePokemonStyle>
           </ContainerDescricaoCard>
 
+          <ContainerTypes>
           {infosPokemon.types.map((type) => {
             return (
               <TypeStyle
@@ -58,17 +62,24 @@ const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
               />
             );
           })}
+          </ContainerTypes>
 
+          
+          <ContainerImage>
           <ImagemPokemon
             src={infosPokemon.sprites.other["official-artwork"].front_default}
           ></ImagemPokemon>
+          </ContainerImage>
+          
 
           <ContainerLinkButton>
             <a onClick={() => goToDetail(navigate,infosPokemon.name)} href="javascript:void(0)">
-              detalhes
+              Detalhes
             </a>
             <ButtonCapturar onClick={handleClick}>{textButtonCard}</ButtonCapturar>
-          </ContainerLinkButton>
+            </ContainerLinkButton>
+           
+          
         </>
       )}
     </CardStyle>

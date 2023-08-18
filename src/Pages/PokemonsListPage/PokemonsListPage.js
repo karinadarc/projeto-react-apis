@@ -1,7 +1,7 @@
 
 import Header from "../../Components/Header/Header";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
-import { ContainerCards, ListPokemons } from "./PokemonsListPageStyle";
+import { ContainerCards, ListPokemons, TextTodosPokemons } from "./PokemonsListPageStyle";
 import useRequestData from "../../Hooks/useRequestData";
 import { useEffect, useState } from "react";
 
@@ -11,7 +11,7 @@ const PokemonsListPage = () => {
   const [capturedPokemons, setCapturedPokemons] = useState([])
 
 
-
+//recupera os dados quando a página carrega
   useEffect(() => {
     const ListPokemons = JSON.parse(localStorage.getItem("capturedPokemons"));
     // console.log(ListPokemons)
@@ -19,15 +19,18 @@ const PokemonsListPage = () => {
     // console.log(ListPokemons)
   }, []);
   
+  //3
   const saveLocalStorage = () =>{
     const ListPokemons = JSON.stringify(capturedPokemons);
     localStorage.setItem("capturedPokemons", ListPokemons);
   }
 
+  //1
   const capturePokemon = (pokemon) => {
     setCapturedPokemons([...capturedPokemons, pokemon]);
   };
 
+  //2
   useEffect(()=>{
     if (capturedPokemons.length){
       saveLocalStorage() 
@@ -41,10 +44,10 @@ const PokemonsListPage = () => {
 
   return (
     <>
-      <Header textButton="Pokemon" />
+      <Header colorScheme='blue' textButton="Pokédex" />
 
       <ContainerCards>
-        <h1>Todos Pokémons</h1>
+        <TextTodosPokemons>Todos Pokémons</TextTodosPokemons>
         <ListPokemons>
           {isError? <p>Erro!!!</p>:
            isLoading? <p>Carregando....</p>:
