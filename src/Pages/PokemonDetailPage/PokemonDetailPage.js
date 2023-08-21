@@ -5,18 +5,32 @@ import {
   BackPoke,
   BaseStats,
   BasicStats,
+  ContainerBaseStats,
   ContainerDetailPages,
+  ContainerInfosDetail,
+  ContainerMoves,
   DetailsPokemons,
   FrontPoke,
+  IdStyle,
   ImgContainerPokemon,
   ImgPokemonDetail,
   Moves,
+  MovesStyles,
+  NomeBase,
+  NomePokemonStyle,
+  PokeImg,
+  ProgressStyle,
+  TituloBaseStats,
+  TituloDetail,
+  TituloDetalhe,
   Type1,
   Type2,
+  TypeStyle,
   TypesDetail,
 } from "./PokemonDetailPageStyle";
 import TypeImage from "../../Components/TypeImage/TypeImage";
 import { CardColor } from "../../ColorCard/CardColor";
+import { Progress } from '@chakra-ui/react'
 
 const PokemonDetailPage = () => {
   const params = useParams();
@@ -30,38 +44,50 @@ const PokemonDetailPage = () => {
 
   return (
     <>
-      <Header textButton="Excluir da Pokédex" textLink="Todos os Pokémons" />
+      <Header colorScheme="red" textButton="Excluir da Pokédex" textLink="< Todos Pokémons" />
 
       <ContainerDetailPages>
-        <h1>Detalhes</h1>
+        <TituloDetalhe>
+        <p>Detalhes</p>
+        </TituloDetalhe>
+       
         {isError ? (
           <p>Erro!!!</p>
         ) : isLoading ? (
           <p>Carregando....</p>
         ) : (
           <DetailsPokemons color={CardColor[pokeapi.types[0].type.name]}>
-            <FrontPoke
+
+            <FrontPoke>
+            <PokeImg
               src={
                 pokeapi.sprites.versions["generation-v"]["black-white"].animated
                   .front_default
               }
             />
-
-            <BackPoke
+            </FrontPoke>
+           
+            <BackPoke>
+            <PokeImg
               src={
                 pokeapi.sprites.versions["generation-v"]["black-white"].animated
                   .back_default
               }
             />
+            </BackPoke>
+            
             <BaseStats>
-              <h2>Base Stats</h2>
+              <TituloDetail>Base Stats</TituloDetail>
               {pokeapi.stats.map((stat, index) => {
                 return (
-                  <p key={index}>
-                    <span>{stat.stat.name}</span>
-                    <span>{stat.base_stat}</span>
-                    <progress value={stat.base_stat} max="100"></progress>
-                  </p>
+                  <ContainerBaseStats key={index}>
+                    <div>
+                    <NomeBase>{stat.stat.name}   <strong>{stat.base_stat}</strong> </NomeBase>
+                      </div>
+                      <div>
+                      <Progress value={stat.base_stat} max="100"/>
+                      </div>
+                  </ContainerBaseStats>
                 );
               })}
               <p>
@@ -72,22 +98,27 @@ const PokemonDetailPage = () => {
               </p>
             </BaseStats>
 
-            <TypesDetail>
-              <p>#{pokeapi.id.toString().padStart(3, "0")}</p>
-              <p>{pokeapi.name}</p>
+            <ContainerInfosDetail>
+              <IdStyle>#{pokeapi.id.toString().padStart(3, "0")}</IdStyle>
+              <NomePokemonStyle>{pokeapi.name}</NomePokemonStyle>
+              <TypeStyle>
               {pokeapi.types.map((obj) => {
                 return (
                   <TypeImage key={obj.type.name} pokemonType={obj.type.name} />
                 );
               })}
-            </TypesDetail>
+              </TypeStyle>
+            </ContainerInfosDetail>
 
-            <Moves>
-              <h2>Moves:</h2>
-              {pokeapi.moves.slice(0, 5).map((move) => {
+            <ContainerMoves>
+              <TituloDetail>Moves:</TituloDetail>
+              <MovesStyles>
+              {pokeapi.moves.slice(0, 30).map((move) => {
                 return <p key={move}>{move.move.name}</p>;
               })}
-            </Moves>
+              </MovesStyles>
+            </ContainerMoves>
+
             <ImgContainerPokemon>
               <ImgPokemonDetail
                 src={pokeapi.sprites.other["official-artwork"].front_default}

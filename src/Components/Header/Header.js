@@ -1,19 +1,26 @@
 import React from "react";
-import { HeaderStyle } from "./HeaderStyle";
+import { ButtonAddStyle, HeaderStyle, LinkStyle } from "./HeaderStyle";
 import { useNavigate } from "react-router-dom";
 import { goToHome, goToPokedex } from "../../Routes/Coordinator";
+import { images } from "../../assets/importImages";
+import { Button, ButtonGroup} from "@chakra-ui/react";
 
-const Header = ({ textButton, textLink}) => {
+
+const Header = ({ textButton, textLink, colorScheme}) => {
 
   const navigate = useNavigate()
 
   return (
     <HeaderStyle>
-      {textLink && <a onClick={() =>goToHome(navigate)} >{textLink}</a>}
-      <img
-        src="https://logodownload.org/wp-content/uploads/2017/08/pokemon-logo-8.png"
-        height="60px"></img>
-      {textButton && <button onClick={() => goToPokedex(navigate) } >{textButton}</button>} 
+      <div>
+        {textLink && <LinkStyle onClick={() =>goToHome(navigate)} >{textLink}</LinkStyle>}
+      </div>
+      <div>
+        <img src={images.logo}/>
+      </div>
+      <div>
+        {textButton && <Button colorScheme={colorScheme} onClick={() => goToPokedex(navigate) } >{textButton}</Button>} 
+      </div>
     </HeaderStyle>
   );
 };
