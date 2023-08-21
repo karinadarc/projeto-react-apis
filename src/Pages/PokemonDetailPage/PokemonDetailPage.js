@@ -7,18 +7,25 @@ import {
   BasicStats,
   ContainerBaseStats,
   ContainerDetailPages,
+  ContainerInfosDetail,
+  ContainerMoves,
   DetailsPokemons,
   FrontPoke,
+  IdStyle,
   ImgContainerPokemon,
   ImgPokemonDetail,
   Moves,
+  MovesStyles,
   NomeBase,
+  NomePokemonStyle,
   PokeImg,
   ProgressStyle,
   TituloBaseStats,
+  TituloDetail,
   TituloDetalhe,
   Type1,
   Type2,
+  TypeStyle,
   TypesDetail,
 } from "./PokemonDetailPageStyle";
 import TypeImage from "../../Components/TypeImage/TypeImage";
@@ -70,7 +77,7 @@ const PokemonDetailPage = () => {
             </BackPoke>
             
             <BaseStats>
-              <TituloBaseStats>Base Stats</TituloBaseStats>
+              <TituloDetail>Base Stats</TituloDetail>
               {pokeapi.stats.map((stat, index) => {
                 return (
                   <ContainerBaseStats key={index}>
@@ -91,22 +98,27 @@ const PokemonDetailPage = () => {
               </p>
             </BaseStats>
 
-            <TypesDetail>
-              <p>#{pokeapi.id.toString().padStart(3, "0")}</p>
-              <p>{pokeapi.name}</p>
+            <ContainerInfosDetail>
+              <IdStyle>#{pokeapi.id.toString().padStart(3, "0")}</IdStyle>
+              <NomePokemonStyle>{pokeapi.name}</NomePokemonStyle>
+              <TypeStyle>
               {pokeapi.types.map((obj) => {
                 return (
                   <TypeImage key={obj.type.name} pokemonType={obj.type.name} />
                 );
               })}
-            </TypesDetail>
+              </TypeStyle>
+            </ContainerInfosDetail>
 
-            <Moves>
-              <h2>Moves:</h2>
+            <ContainerMoves>
+              <TituloDetail>Moves:</TituloDetail>
+              <MovesStyles>
               {pokeapi.moves.slice(0, 30).map((move) => {
                 return <p key={move}>{move.move.name}</p>;
               })}
-            </Moves>
+              </MovesStyles>
+            </ContainerMoves>
+
             <ImgContainerPokemon>
               <ImgPokemonDetail
                 src={pokeapi.sprites.other["official-artwork"].front_default}

@@ -67,18 +67,18 @@ export const PokeImg = styled.img`
 
 export const BaseStats = styled.div`
   width: 26vw;
-  height: 84vh;
+  height: 85vh;
   top: 24px;
   left: 360px;
   border-radius: 12px;
   background: #ffffff;
-  
   grid-area: basicStats;
 `;
 
-export const TituloBaseStats = styled.p`
+export const TituloDetail = styled.p`
 font-size:1.5rem;
 font-weight: 700;
+padding-left:10px;
 ` 
 export const NomeBase = styled.span`
 font-size:1.3em;
@@ -113,11 +113,36 @@ float:left;
 height:2vh;
 border-radius: 35px;
 `
+export const NomePokemonStyle = styled.p`
+  text-transform: capitalize;
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: left;
+  color: #ffffff;
+  line-height: normal;
+`;
 
-
-export const TypesDetail = styled.div`
+export const ContainerInfosDetail = styled.div`
   grid-area: typesDetail;
 `;
+
+export const IdStyle = styled.p`
+color: #FFF;
+/* font-family: Inter; */
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+`
+
+export const TypeStyle = styled.div`
+ display:flex;
+ width:7vw;
+ height:7vh;
+ /* padding:1%; */
+`;
+
 export const ImgPokemonDetail = styled.img`
   /* width: 20vw; */
   height: 30vh;
@@ -128,20 +153,34 @@ export const ImgPokemonDetail = styled.img`
 `;
 export const ImgContainerPokemon = styled.div`
   grid-area: imgContainerPokemon;
-  /* background-color:red; */
+
 `;
 
-export const Moves = styled.div`
+export const ContainerMoves = styled.div`
   overflow-y: auto;
-  max-height: 70vh;
-  /* width: 292px; */
-  /* height: 470px; */
+  max-height: 67vh;
+  width:20vw;
   top: 184px;
   left: 771px;
   border-radius: 8px;
-  background: #ffffff;
+  background: #FFF;
   grid-area: moves;
+
 `;
 
+
+export const MovesStyles = styled.div`
+
+p{
+  width:fit-content;
+  text-transform: capitalize;
+  padding:5px;
+  margin:8px;
+  border-radius: 12px;
+  border: 1px dashed rgba(0, 0, 0, 0.14);
+  background: #ECECEC;
+
+}
+`
 
 
