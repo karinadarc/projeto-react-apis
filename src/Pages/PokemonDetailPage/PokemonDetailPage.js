@@ -31,9 +31,28 @@ import {
 import TypeImage from "../../Components/TypeImage/TypeImage";
 import { CardColor } from "../../ColorCard/CardColor";
 import { Progress } from '@chakra-ui/react'
+import { useContext } from "react";
+import GlobalContext from "../../contexts/GlobalContext";
 
 const PokemonDetailPage = () => {
   const params = useParams();
+  const context = useContext(GlobalContext);
+  
+  const {capturePokemon, removerPokemon, myPokemons} = context;
+
+
+  //O que a função retornar vai para quem invocar a função isMyPokemon.  Se eu colocar as {} preciso chamar o return
+  const isMyPokemon = () =>myPokemons.includes(pokemonDetailName)
+
+  const addOrRemovePokemon = () =>{
+    
+    if(isMyPokemon()){
+      removerPokemon(pokemonDetailName)
+      return
+    }
+    capturePokemon(pokemonDetailName)
+  }
+  
 
   const pokemonDetailName = params.name;
   // console.log(params.name);
@@ -42,10 +61,16 @@ const PokemonDetailPage = () => {
     `/pokemon/${pokemonDetailName}`
   );
 
+  const getButtonColor = () => isMyPokemon()?'red': 'blue'
+  const getButtonText = () => isMyPokemon()?"Excluir da Pokédex": "Adicionar Pokémon"
+
   return (
     <>
-      <Header colorScheme="red" textButton="Excluir da Pokédex" textLink="< Todos Pokémons" />
-
+      <Header colorScheme={getButtonColor()}
+      textButton={getButtonText()}
+      funcaoButton={addOrRemovePokemon}
+       textLink="< Todos Pokémons" />
+      
       <ContainerDetailPages>
         <TituloDetalhe>
         <p>Detalhes</p>

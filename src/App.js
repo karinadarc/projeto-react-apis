@@ -1,10 +1,8 @@
-import Reacts, { useState } from "react";
-import PokemonsListPage from "./Pages/PokemonsListPage/PokemonsListPage";
-import PokedexPage from "./Pages/PokedexPage/PokedexPage";
-import PokemonDetailPage from "./Pages/PokemonDetailPage/PokemonDetailPage";
+import { useState } from "react";
 import Router from "./Routes/Router";
-import { theme } from "./styles";
 import {ChakraProvider} from '@chakra-ui/react'
+import GlobalState from "./contexts/GlobalState";
+
 
 
 function App() {
@@ -38,9 +36,12 @@ function App() {
   // }
 
   return (
-     <ChakraProvider >
+    <GlobalState>
+    <ChakraProvider >
       <Router/>
      </ChakraProvider>
+    </GlobalState>
+     
   );
 }
 
