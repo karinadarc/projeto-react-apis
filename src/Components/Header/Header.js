@@ -6,7 +6,7 @@ import { images } from "../../assets/importImages";
 import { Button, ButtonGroup} from "@chakra-ui/react";
 
 
-const Header = ({ textButton, textLink, colorScheme}) => {
+const Header = ({ textButton, textLink, colorScheme, funcaoButton}) => {
 
   const navigate = useNavigate()
 
@@ -19,7 +19,7 @@ const Header = ({ textButton, textLink, colorScheme}) => {
         <img src={images.logo}/>
       </div>
       <div>
-        {textButton && <Button colorScheme={colorScheme} onClick={() => goToPokedex(navigate) } >{textButton}</Button>} 
+        {textButton && <Button colorScheme={colorScheme} onClick={funcaoButton} >{textButton}</Button>} 
       </div>
     </HeaderStyle>
   );
