@@ -63,7 +63,6 @@ export const ContainerDescricaoCard = styled.div`
 `;
 export const NomePokemonStyle = styled.p`
   text-transform: capitalize;
-  font-family: "Inter", sans-serif;
   font-size: 32px;
   font-weight: 700;
   text-align: left;

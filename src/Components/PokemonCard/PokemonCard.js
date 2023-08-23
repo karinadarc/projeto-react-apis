@@ -18,6 +18,7 @@ import useRequestData from "../../Hooks/useRequestData";
 import { TypesColor } from "../../ColorCard/TypeColor";
 import { CardColor } from "../../ColorCard/CardColor";
 import { images } from "../../assets/importImages";
+import { Error } from "../Error/Error";
 
 const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
   const [infosPokemon, isLoading, isError] = useRequestData(
@@ -41,7 +42,9 @@ const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
   return (
     <>
       {isError ? (
-        <p>Erro!!!</p>
+        <Error
+        name={pokemonName}
+        />
       ) : isLoading ? (
         <ImgPoke>
           <img src={images.pokeball}/>

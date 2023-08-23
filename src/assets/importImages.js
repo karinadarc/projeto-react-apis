@@ -7,6 +7,7 @@ import pikachu from './gif/pikachu.gif'
 import pokechu from './gif/poke-chu.gif'
 import pokeball from './gif/pokeball.gif'
 import cardloading from './gif/cardloading.webp'
+import pokeError from './gif/pokeError.gif'
 
 export const images ={
     logo,
@@ -17,5 +18,6 @@ export const images ={
     pikachu,
     pokechu,
     pokeball,
-    cardloading
+    cardloading,
+    pokeError
 }
