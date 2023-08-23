@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 export const  ContainerCards= styled.article`
 background: #5E5E5E;
+height:280vh;
 
 `
 
@@ -19,6 +20,5 @@ color: #FFF;
 padding-left:3%;
 font-size: 2rem;
 font-weight: 700;
-/* line-height: normal; */
-/* padding-bottom:2%; */
+
 `

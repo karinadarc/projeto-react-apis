@@ -7,13 +7,10 @@ const GlobalState = ({ children }) => {
   const [myPokemons, setMyPokemons] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  
-
   useEffect(() => {
     const ListPokemons = JSON.parse(localStorage.getItem("capturedPokemons"));
-    // console.log(ListPokemons)
+
     ListPokemons && setMyPokemons(ListPokemons);
-    // console.log(ListPokemons)
   }, []);
 
   const saveLocalStorage = () => {
@@ -47,20 +44,13 @@ const GlobalState = ({ children }) => {
     console.log(pokemonName);
   };
 
-  //------------------------------------------------------------------------------------------------
-
   const data = {
     saveLocalStorage,
-    // capturedPokemons,
-    // setCapturedPokemons,
     capturePokemon,
     myPokemons,
     setMyPokemons,
     removerPokemon,
     imgModal,
-    // setImgModal,
-    // cardModal,
-    // setCardModal,
     isOpen,
     onOpen,
     onClose,

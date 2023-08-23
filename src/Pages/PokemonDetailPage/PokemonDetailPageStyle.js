@@ -4,7 +4,7 @@ export const ContainerDetailPages = styled.section`
   background: #5e5e5e;
   display: flex;
   flex-direction: column;
-  height:auto;
+  height:150vh;
 `;
 
 export const TituloDetalhe = styled.div`

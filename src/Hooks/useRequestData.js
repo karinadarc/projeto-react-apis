@@ -13,7 +13,7 @@ const useRequestData = (path) => {
       .get(`${BASE_URL}${path}`)
       .then((response) => {
         setData(response.data);
-        // setTimeout(() => setIsLoading(false), 1000);
+        //  setTimeout(() => setIsLoading(false),3000);
         setIsLoading(false);
       })
       .catch((error) => {

@@ -8,6 +8,7 @@ import {
   ContainerTypes,
   IdStyle,
   ImagemPokemon,
+  ImgPoke,
   NomePokemonStyle,
   TypeStyle,
 } from "./PokemonCardStyle";
@@ -16,19 +17,16 @@ import { goToDetail } from "../../Routes/Coordinator";
 import useRequestData from "../../Hooks/useRequestData";
 import { TypesColor } from "../../ColorCard/TypeColor";
 import { CardColor } from "../../ColorCard/CardColor";
+import { images } from "../../assets/importImages";
 
 const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
-  //console.log(pokemon)
   const [infosPokemon, isLoading, isError] = useRequestData(
     `/pokemon/${pokemonName}`
   );
 
-  const handleClick = () =>{
-    functionButton(pokemonName)
-  }
-  
-
-  // console.log(TypesColor);
+  const handleClick = () => {
+    functionButton(pokemonName);
+  };
 
   const navigate = useNavigate();
 
@@ -41,48 +39,51 @@ const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
   };
 
   return (
-    <CardStyle color={getPrincialColor()}>
+    <>
       {isError ? (
         <p>Erro!!!</p>
       ) : isLoading ? (
-        <p>Carregando....</p>
+        <ImgPoke>
+          <img src={images.pokeball}/>
+        </ImgPoke>
       ) : (
-        <>
+        <CardStyle color={getPrincialColor()}>
           <ContainerDescricaoCard>
-            <IdStyle>#{infosPokemon.id.toString().padStart(3,'0')}</IdStyle>
+            <IdStyle>#{infosPokemon.id.toString().padStart(3, "0")}</IdStyle>
             <NomePokemonStyle>{pokemonName}</NomePokemonStyle>
           </ContainerDescricaoCard>
 
           <ContainerTypes>
-          {infosPokemon.types.map((type) => {
-            return (
-              <TypeStyle
-                key={type.type.name}
-                src={TypesColor[type.type.name]}
-              />
-            );
-          })}
+            {infosPokemon.types.map((type) => {
+              return (
+                <TypeStyle
+                  key={type.type.name}
+                  src={TypesColor[type.type.name]}
+                />
+              );
+            })}
           </ContainerTypes>
 
-          
           <ContainerImage>
-          <ImagemPokemon
-            src={infosPokemon.sprites.other["official-artwork"].front_default}
-          ></ImagemPokemon>
+            <ImagemPokemon
+              src={infosPokemon.sprites.other["official-artwork"].front_default}
+            ></ImagemPokemon>
           </ContainerImage>
-          
 
           <ContainerLinkButton>
-            <a onClick={() => goToDetail(navigate,infosPokemon.name)} href="javascript:void(0)">
+            <a
+              onClick={() => goToDetail(navigate, infosPokemon.name)}
+              href="javascript:void(0)"
+            >
               Detalhes
             </a>
-            <ButtonCapturar onClick={handleClick}>{textButtonCard}</ButtonCapturar>
-            </ContainerLinkButton>
-           
-          
-        </>
+            <ButtonCapturar onClick={handleClick}>
+              {textButtonCard}
+            </ButtonCapturar>
+          </ContainerLinkButton>
+        </CardStyle>
       )}
-    </CardStyle>
+    </>
   );
 };
 
