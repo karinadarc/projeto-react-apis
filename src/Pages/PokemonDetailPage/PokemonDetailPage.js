@@ -64,6 +64,12 @@ const PokemonDetailPage = () => {
   const getButtonColor = () => isMyPokemon()?'red': 'blue'
   const getButtonText = () => isMyPokemon()?"Excluir da Pokédex": "Adicionar Pokémon"
 
+  const colorProgress = (valor) =>{
+    if(valor < 33) return 'yellow'
+    if (valor < 66) return 'orange'
+    return 'red'
+  }
+
   return (
     <>
       <Header colorScheme={getButtonColor()}
@@ -111,7 +117,7 @@ const PokemonDetailPage = () => {
                       <Divider/>
                       </div>
                       <div>
-                      <Progress value={stat.base_stat} max="100"/>
+                      <Progress value={stat.base_stat} colorScheme={colorProgress(stat.base_stat)} size='sm'/>
                       </div>
                   </ContainerBaseStats>
                 );
