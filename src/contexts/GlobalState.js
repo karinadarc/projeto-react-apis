@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import GlobalContext from "./GlobalContext";
+import { useDisclosure } from "@chakra-ui/react";
 
 const GlobalState = ({ children }) => {
-  // const [capturedPokemons, setCapturedPokemons] = useState([]); //listPage
-  const [myPokemons, setMyPokemons] = useState([])
+  const [imgModal, setImgModal] = useState("");
+  const [myPokemons, setMyPokemons] = useState([]);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
+  
 
   useEffect(() => {
     const ListPokemons = JSON.parse(localStorage.getItem("capturedPokemons"));
@@ -20,6 +23,8 @@ const GlobalState = ({ children }) => {
 
   const capturePokemon = (pokemon) => {
     setMyPokemons([...myPokemons, pokemon]);
+    setImgModal("capture");
+    onOpen();
   };
 
   useEffect(() => {
@@ -29,17 +34,18 @@ const GlobalState = ({ children }) => {
     }
   }, [myPokemons]);
 
-
- 
-
-  const removerPokemon = (pokemonName) =>{
-    const novaListaPokemons = myPokemons.filter(pokeCapturado => pokeCapturado !== pokemonName);
+  const removerPokemon = (pokemonName) => {
+    const novaListaPokemons = myPokemons.filter(
+      (pokeCapturado) => pokeCapturado !== pokemonName
+    );
 
     localStorage.setItem("capturedPokemons", JSON.stringify(novaListaPokemons));
-    setMyPokemons(novaListaPokemons)
- 
-    console.log(pokemonName)
-  }
+    setMyPokemons(novaListaPokemons);
+    setImgModal("remove");
+    onOpen();
+
+    console.log(pokemonName);
+  };
 
   //------------------------------------------------------------------------------------------------
 
@@ -48,13 +54,21 @@ const GlobalState = ({ children }) => {
     // capturedPokemons,
     // setCapturedPokemons,
     capturePokemon,
-    myPokemons, 
+    myPokemons,
     setMyPokemons,
-    removerPokemon
+    removerPokemon,
+    imgModal,
+    // setImgModal,
+    // cardModal,
+    // setCardModal,
+    isOpen,
+    onOpen,
+    onClose,
+  };
 
-  }
-
-  return <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>;
+  return (
+    <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>
+  );
 };
 
 export default GlobalState;
