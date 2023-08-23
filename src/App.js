@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Router from "./Routes/Router";
-import {ChakraProvider} from '@chakra-ui/react'
+import {ChakraProvider, theme} from '@chakra-ui/react'
 import GlobalState from "./contexts/GlobalState";
 
 
@@ -37,7 +37,7 @@ function App() {
 
   return (
     <GlobalState>
-    <ChakraProvider >
+    <ChakraProvider theme={theme}>
       <Router/>
      </ChakraProvider>
     </GlobalState>

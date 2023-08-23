@@ -30,7 +30,7 @@ import {
 } from "./PokemonDetailPageStyle";
 import TypeImage from "../../Components/TypeImage/TypeImage";
 import { CardColor } from "../../ColorCard/CardColor";
-import { Progress } from '@chakra-ui/react'
+import { Divider, Progress } from '@chakra-ui/react'
 import { useContext } from "react";
 import GlobalContext from "../../contexts/GlobalContext";
 
@@ -108,6 +108,7 @@ const PokemonDetailPage = () => {
                   <ContainerBaseStats key={index}>
                     <div>
                     <NomeBase>{stat.stat.name}   <strong>{stat.base_stat}</strong> </NomeBase>
+                      <Divider/>
                       </div>
                       <div>
                       <Progress value={stat.base_stat} max="100"/>
