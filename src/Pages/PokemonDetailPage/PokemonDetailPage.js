@@ -33,6 +33,7 @@ import { CardColor } from "../../ColorCard/CardColor";
 import { Divider, Progress } from '@chakra-ui/react'
 import { useContext } from "react";
 import GlobalContext from "../../contexts/GlobalContext";
+import { Loading } from "../../Components/Loading/Loading";
 
 const PokemonDetailPage = () => {
   const params = useParams();
@@ -85,7 +86,7 @@ const PokemonDetailPage = () => {
         {isError ? (
           <p>Erro!!!</p>
         ) : isLoading ? (
-          <p>Carregando....</p>
+          <Loading/>
         ) : (
           <DetailsPokemons color={CardColor[pokeapi.types[0].type.name]}>
 

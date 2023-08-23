@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { images } from "../../assets/importImages";
 
 export const CardStyle = styled.div`
-  display:grid;
+  display: grid;
   background-color: ${(props) => props.color};
   position: relative;
   border-radius: 12px;
@@ -17,47 +18,42 @@ export const CardStyle = styled.div`
 `;
 
 export const IdStyle = styled.p`
-color: #FFF;
-/* font-family: Inter; */
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-`
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
 
 export const ImagemPokemon = styled.img`
   width: 193px;
   height: 193px;
-  /* font-family: Poppins; */
   position: absolute;
   top: -40px;
   right: 0;
   z-index: 2;
 `;
 
-
 export const ContainerImage = styled.div`
   grid-area: imagem;
-
-
-`
+`;
 export const TypeStyle = styled.img`
- width:6vw;
- height: 5.5vh;
- padding:1%;
+  width: 6vw;
+  height: 5.5vh;
+  padding: 1%;
 `;
 export const ContainerLinkButton = styled.div`
-display:flex;
-justify-content:space-between;
-color: #FFF;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-decoration-line: underline;
-bottom: 10px;
-align-self: end;
-grid-area: linkButton;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+  bottom: 10px;
+  align-self: end;
+  grid-area: linkButton;
 `;
 
 export const ContainerDescricaoCard = styled.div`
@@ -84,9 +80,24 @@ export const ButtonCapturar = styled.button`
   border: none;
   cursor: pointer;
   color: #000;
- `;
+`;
 export const ContainerTypes = styled.div`
-grid-area: types;
-display:flex;
-
-`
+  grid-area: types;
+  display: flex;
+`;
+export const ImgPoke = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  background-image: url(${images.cardloading}) ;
+  background-size:100% 100%;
+  position: relative;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 4vh;
+  width: 440px;
+  height: 210px;
+  flex-shrink: 0;
+  
+`;
