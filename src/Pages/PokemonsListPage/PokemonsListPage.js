@@ -8,6 +8,7 @@ import GlobalContext from "../../contexts/GlobalContext";
 import { goToPokedex } from "../../Routes/Coordinator";
 import {useNavigate } from "react-router-dom";
 import { Loading } from "../../Components/Loading/Loading";
+import { Error } from "../../Components/Error/Error";
 
 
 const PokemonsListPage = () => {
@@ -27,7 +28,7 @@ const PokemonsListPage = () => {
         <TextTodosPokemons>Todos Pokémons</TextTodosPokemons>
         <ListPokemons>
        
-          {isError? <p>Erro!!!</p>:
+          {isError? <Error/>:
            isLoading? <Loading/>:
 
            
