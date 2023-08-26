@@ -87,17 +87,12 @@ Todo o projeto foi organizado e estilizado através do modelo fornecido pela Lab
 	- [x] Header deve ter um botão para adicionar ou remover da Pokedex e outro para voltar a página home.
 
 
+
+## Link do deploy:
+[Vercel - Karina D'arc](https://projeto-react-apis-six-iota.vercel.app/)
+
+
 ## Captura de tela do projeto ##
-
-
-## :white_check_mark: Pré requisitos ##
-
-Antes de começar :checkered_flag:, você precisa ter o [Git](https://git-scm.com) e o [Node](https://nodejs.org/en/) instalados em sua maquina.
-
-# Link do deploy:
-
-<!-- [Github Pages](https://karinadarc.github.io/projeto-frontendreact/) -->
-
 ![Home Page](./src//assets/print/home.png)
 ![DetailPage](./src//assets/print/detalhes.png)
 ![DetailPage](./src//assets/print/detailExcluir.png)
@@ -107,6 +102,9 @@ Antes de começar :checkered_flag:, você precisa ter o [Git](https://git-scm.co
 ![ErrorPage](./src//assets/print/errorPagee.png)
 ![isError](./src//assets/print/isError.png)
 
+
+## :white_check_mark: Pré requisitos ##
+Antes de começar :checkered_flag:, você precisa ter o [Git](https://git-scm.com) e o [Node](https://nodejs.org/en/) instalados em sua maquina.
 
 ```bash
 # Clone este repositório
@@ -129,7 +127,7 @@ $ npm start
 Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 
-Feito com :heart: por <a href="https://github.com/karinadarc" target="_blank">Karina D&#39;arc Piere</a>
+Feito com :heart: por <a href="https://www.linkedin.com/in/karina-darc/" target="_blank">Karina D&#39;arc Piere</a>
 
 &#xa0;
 
