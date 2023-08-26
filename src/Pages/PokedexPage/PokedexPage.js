@@ -15,7 +15,7 @@ const PokedexPage = () => {
 
   return (
     <>
-      <Header textLink="< Todos Pokémons" />
+      <Header textLink="Todos Pokémons" />
 
       <ContainerPokedex>
         <TituloPokedex>Meus Pokémons</TituloPokedex>
@@ -25,7 +25,7 @@ const PokedexPage = () => {
               <PokemonCard
                 key={pokeCapurado}
                 pokemonName={pokeCapurado}
-                textButtonCard="Deletar"
+                textButtonCard="Excluir" 
                 functionButton={removerPokemon}
               />
             );

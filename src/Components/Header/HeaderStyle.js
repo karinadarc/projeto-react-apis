@@ -3,13 +3,8 @@ import { styled } from "styled-components";
 export const HeaderStyle = styled.header`
   display: flex;
   width: 96vw;
-  height: 20vh;
+  height: 15vh;
   align-items: center;
-  img {
-    width: 307px;
-    height: 113px;
-    flex-shrink: 0;
-  }
 
   Button {
     width: 280px;
@@ -30,6 +25,7 @@ export const HeaderStyle = styled.header`
 `;
 
 export const LinkStyle = styled.a`
+  display: flex;
   color: #1a1a1a;
   font-size: 24px;
   font-style: normal;
@@ -39,4 +35,14 @@ export const LinkStyle = styled.a`
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const LogoImg = styled.img`
+  width: 15vw;
+  height: 12vh;
+`;
+
+export const SetaStyle = styled.img`
+  width: 3vh;
+  height: 1%.5;
 `;

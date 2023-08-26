@@ -4,29 +4,24 @@ import useRequestData from "../../Hooks/useRequestData";
 import {
   BackPoke,
   BaseStats,
-  BasicStats,
   ContainerBaseStats,
   ContainerDetailPages,
   ContainerInfosDetail,
   ContainerMoves,
+  ContainerTotal,
   DetailsPokemons,
   FrontPoke,
   IdStyle,
   ImgContainerPokemon,
   ImgPokemonDetail,
-  Moves,
   MovesStyles,
   NomeBase,
   NomePokemonStyle,
   PokeImg,
-  ProgressStyle,
-  TituloBaseStats,
   TituloDetail,
   TituloDetalhe,
-  Type1,
-  Type2,
+  TotalStyle,
   TypeStyle,
-  TypesDetail,
 } from "./PokemonDetailPageStyle";
 import TypeImage from "../../Components/TypeImage/TypeImage";
 import { CardColor } from "../../ColorCard/CardColor";
@@ -54,7 +49,6 @@ const PokemonDetailPage = () => {
   };
 
   const pokemonDetailName = params.name;
-  // console.log(params.name);
 
   const [pokeapi, isLoading, isError] = useRequestData(
     `/pokemon/${pokemonDetailName}`
@@ -65,9 +59,9 @@ const PokemonDetailPage = () => {
     isMyPokemon() ? "Excluir da Pokédex" : "Adicionar Pokémon";
 
   const colorProgress = (valor) => {
-    if (valor < 33) return "yellow";
-    if (valor < 66) return "orange";
-    return "red";
+    if (valor < 49) return "blue";
+    if (valor > 50) return "red";
+    
   };
 
   return (
@@ -76,7 +70,7 @@ const PokemonDetailPage = () => {
         colorScheme={getButtonColor()}
         textButton={getButtonText()}
         funcaoButton={addOrRemovePokemon}
-        textLink="< Todos Pokémons"
+        textLink="Todos Pokémons"
       />
 
       <ContainerDetailPages>
@@ -85,7 +79,8 @@ const PokemonDetailPage = () => {
         </TituloDetalhe>
 
         {isError ? (
-          <Error />
+          <Error
+          name={pokemonDetailName} />
         ) : isLoading ? (
           <Loading />
         ) : (
@@ -110,32 +105,46 @@ const PokemonDetailPage = () => {
 
             <BaseStats>
               <TituloDetail>Base Stats</TituloDetail>
+              <Divider />
               {pokeapi.stats.map((stat, index) => {
                 return (
-                  <ContainerBaseStats key={index}>
-                    <div>
-                      <NomeBase>
-                        {stat.stat.name} <strong>{stat.base_stat}</strong>{" "}
-                      </NomeBase>
-                      <Divider />
-                    </div>
-                    <div>
-                      <Progress
-                        value={stat.base_stat}
-                        colorScheme={colorProgress(stat.base_stat)}
-                        size="sm"
-                      />
-                    </div>
-                  </ContainerBaseStats>
+                  <>
+                    <ContainerBaseStats key={index}>
+                      <div>
+                        <NomeBase>
+                          {stat.stat.name} <strong>{stat.base_stat}</strong>{" "}
+                        </NomeBase>
+                      </div>
+
+                      <div>
+                        <Progress
+                          w="lg"
+                          h="7px"
+                          value={stat.base_stat}
+                          colorScheme={colorProgress(stat.base_stat)}
+                          size="sm"
+                          borderRadius="2px"
+                          textAlign="center"
+                        />
+                      </div>
+                    </ContainerBaseStats>
+                    <Divider />
+                  </>
                 );
               })}
-              <p>
-                Total:
-                {pokeapi.stats.reduce(
-                  (total, stat) => total + stat.base_stat,
-                  0
-                )}
-              </p>
+              <ContainerTotal>
+                <div>
+                  <TotalStyle>
+                    Total:
+                    <strong>
+                      {pokeapi.stats.reduce(
+                        (total, stat) => total + stat.base_stat,
+                        0
+                      )}
+                    </strong>
+                  </TotalStyle>
+                </div>
+              </ContainerTotal>
             </BaseStats>
 
             <ContainerInfosDetail>

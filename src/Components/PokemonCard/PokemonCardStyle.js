@@ -4,6 +4,9 @@ import { images } from "../../assets/importImages";
 export const CardStyle = styled.div`
   display: grid;
   background-color: ${(props) => props.color};
+  background-image: url(${images.pokeCard});
+  background-repeat: no-repeat;
+  background-position: top right;
   position: relative;
   border-radius: 12px;
   padding: 16px;
@@ -29,13 +32,14 @@ export const ImagemPokemon = styled.img`
   width: 193px;
   height: 193px;
   position: absolute;
-  top: -40px;
+  top: -60px;
   right: 0;
   z-index: 2;
 `;
 
 export const ContainerImage = styled.div`
   grid-area: imagem;
+
 `;
 export const TypeStyle = styled.img`
   width: 6vw;
@@ -50,10 +54,14 @@ export const ContainerLinkButton = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  text-decoration-line: underline;
   bottom: 10px;
   align-self: end;
   grid-area: linkButton;
+
+  a{
+  text-decoration-line: underline;
+  
+  }
 `;
 
 export const ContainerDescricaoCard = styled.div`
@@ -74,11 +82,12 @@ export const ButtonCapturar = styled.button`
   padding: 4px 10px;
   width: 146px;
   height: 38px;
-  background: #ffffff;
+  background:${(props) => props.colorCard};
+  color:${(props) => props.colorText};
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  color: #000;
+  text-decoration:none;
 `;
 export const ContainerTypes = styled.div`
   grid-area: types;
@@ -97,6 +106,7 @@ export const ImgPoke = styled.div`
   margin: 4vh;
   width: 440px;
   height: 210px;
-  flex-shrink: 0;
+  top: -10px;
+  /* flex-shrink: 0; */
   
 `;

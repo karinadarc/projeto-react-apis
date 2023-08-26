@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const  ContainerCards= styled.article`
 background: #5E5E5E;
-height:280vh;
+min-height:85vh;
 
 `
 
