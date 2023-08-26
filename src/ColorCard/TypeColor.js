@@ -21,7 +21,7 @@ import water from "../assets/types-icones/water.png"
     bug:bug,
     dark:dark,
     dragon:dragon,
-    electriclectric:electric,
+    electric:electric,
     fairy:fairy,
     fighting:fighting,
     fire:fire,

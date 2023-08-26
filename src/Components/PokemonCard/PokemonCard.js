@@ -42,12 +42,10 @@ const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
   return (
     <>
       {isError ? (
-        <Error
-        name={pokemonName}
-        />
+        <Error name={pokemonName} />
       ) : isLoading ? (
         <ImgPoke>
-          <img src={images.pokeball}/>
+          <img src={images.pokeball} />
         </ImgPoke>
       ) : (
         <CardStyle color={getPrincialColor()}>
@@ -80,7 +78,11 @@ const PokemonCard = ({ pokemonName, textButtonCard, functionButton }) => {
             >
               Detalhes
             </a>
-            <ButtonCapturar onClick={handleClick}>
+            <ButtonCapturar
+              onClick={handleClick}
+              colorCard={textButtonCard === "Excluir" ? "#FF6262" : "white"}
+              colorText={textButtonCard === "Capturar!" ? "black" : "white"}
+            >
               {textButtonCard}
             </ButtonCapturar>
           </ContainerLinkButton>

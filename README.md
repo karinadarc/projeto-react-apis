@@ -1,61 +1,136 @@
-# **Projeto React e API's**
-O Projeto React e APIs é um site de pokémons que possui três páginas: Home, Pokedex e Detalhes. O projeto está subdivido em temas de acordo com os conteúdos que estudado durante o Módulo 2 - Frontend.
+![funcionamento-site-gif](./src/assets/gif/projetoPokedex.gif)
 
-Este projeto terá como fonte de dados para a sua criação a [Poke Api](https://pokeapi.co/ "Poke Api"), uma Api pública, muito usada para aplicações focadas em aprendizado de programação e também usada em cases de processos seletivos.
+<h1 align="center">Projeto Pokedex</h1>
 
-Os conteúdos principais  a serem estudados são:
+<p align="center">
+  <img alt="Principal linguagem do projeto" src="https://img.shields.io/github/languages/top/karinadarc/projeto-pokedex?color=56BEB8">
 
-- Integração de APIs
-- React Router
-- Design Systems
-- Estado Global
+  <img alt="Quantidade de linguagens utilizadas" src="https://img.shields.io/github/languages/count/karinadarc/projeto-pokedex?color=56BEB8">
 
-## **Enunciado**
-É objetivo deste projeto criar um site com três páginas usando a Poke Api com as seguintes ferramentas:
+  <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/karinadarc/projeto-pokedex?color=56BEB8">
 
-- React
-- React Router
-- Styled-components
-- React Context
-- Axios
+  <img alt="Licença" src="https://img.shields.io/github/license/karinadarc/projeto-pokedex?color=56BEB8">
 
-### **Requisitos**
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/karinadarc/projeto-pokedex?color=56BEB8" /> -->
+
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/karinadarc/projeto-pokedex?color=56BEB8" /> -->
+
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/karinadarc/projeto-pokedex?color=56BEB8" /> -->
+</p>
+
+<!-- Status -->
+
+<!-- <h4 align="center"> 
+	🚧  Projeto Pokedex 🚀 Em construção...  🚧
+</h4> 
+
+<hr> -->
+
+<p align="center">
+  <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0; 
+  <a href="#sparkles-funcionalidades">Funcionalidades</a> &#xa0; | &#xa0;
+  <a href="#rocket-tecnologias">Tecnologias</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-pré-requisitos">Pré requisitos</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-começando">Começando</a> &#xa0; | &#xa0;
+  <a href="#memo-licença">Licença</a> &#xa0; | &#xa0;
+  <a href="https://github.com/karinadarc" target="_blank">Autor</a>
+</p>
+
+<br>
+
+## :dart: Sobre ##
+
+O projeto "React e API's" é uma aplicação web focada no universo dos pokemons, utilizando como fonte de dados, a [Poke Api](https://pokeapi.co/ "Poke Api"). A estrutura do projeto abrange três páginas: Home, Pokédex e Detalhes.
+
+
+
+
+## :sparkles: Funcionalidades ##
+
+:heavy_check_mark: Na página **Home**, todos os cards estão disponíveis para visualização. Para saber informações detalhadas de algum pokémon, clique no link do Card **"Detalhes"**.
+
+
+
+:heavy_check_mark: Para adicionar o pokémon a sua Página Pokédex, clique no botão do Card **"Capturar"** ou se estiver na página de Detalhes, você pode clicar no botão **"Adicionar Pokémon"** ou se quiser excluir, pode apertar no botão **"Excluir da Pokédex"**.
+
+:heavy_check_mark:Para acessar a lista de pokémons capturados, basta clicar no botão **"Pokédex"** localizado na página Home. Atavés dele é possível acessar a página de detalhes novamente e excluir ou adicionar novamente a Pokédex.
+
+## :rocket: Tecnologias ##
+
+Todo o projeto foi organizado e estilizado através do modelo fornecido pela Labenu que foi disponibilizado no figma. Em sintonia com os tópicos abordados ao longo do Módulo de Frontend, destaco as principais ferramentas e técnicas ultilizadas:
+
+- [Axios](https://axios-http.com/)
+- [React](https://pt-br.reactjs.org/)
+- [Chakra](https://chakra-ui.com/docs/components/divider)
+- [Node](https://nodejs.org/en/)
+- [Poke Api](https://pokeapi.co/ "Poke Api")
+- [Styled-components](https://styled-components.com/)
+- [Figma](https://www.figma.com/)
+
+## :dart: Requisitos ##
 - **Gerais:**
-	- [ ] O site deve ter 3 páginas: Home, Pokedex e Detalhes;
-	- [ ] Projeto deve seguir o [design](https://www.figma.com/file/KseyA2Ofghiek2Cy3ZaDre/Poked%C3%A9x?t=AEi3zEmWmarf1FbP-0 "design") proposto;
-	- [ ] O fluxo de trocas de páginas devem ser semelhante ao [fluxograma](https://www.figma.com/proto/KseyA2Ofghiek2Cy3ZaDre/Poked%C3%A9x?page-id=0%3A1&node-id=2%3A2&viewport=358%2C197%2C0.27&scaling=scale-down&starting-point-node-id=2%3A2 "fluxograma");
+	- [x] O site deve ter 3 páginas: Home, Pokedex e Detalhes;
+	- [x] Projeto deve seguir o [design](https://www.figma.com/file/KseyA2Ofghiek2Cy3ZaDre/Poked%C3%A9x?t=AEi3zEmWmarf1FbP-0 "design") proposto;
+	- [x] O fluxo de trocas de páginas devem ser semelhante ao [fluxograma](https://www.figma.com/proto/KseyA2Ofghiek2Cy3ZaDre/Poked%C3%A9x?page-id=0%3A1&node-id=2%3A2&viewport=358%2C197%2C0.27&scaling=scale-down&starting-point-node-id=2%3A2 "fluxograma");
 - **Página Home:**
-	- [ ]  Mostrar uma lista de Pokemons, contendo ao menos 20 Pokemons;
-	- [ ] Cada Pokemon será representado por um Card;
-	- [ ] Em cada card de Pokemon tem um botão para adicioná-lo à Pokedex e um outro botão para acessar os detalhes do Pokemon;
-	- [ ] Header dessa página terá um botão para acessar a página da Pokedex
+	- [x]  Mostrar uma lista de Pokemons, contendo ao menos 20 Pokemons;
+	- [x] Cada Pokemon será representado por um Card;
+	- [x] Em cada card de Pokemon tem um botão para adicioná-lo à Pokedex e um outro botão para acessar os detalhes do Pokemon;
+	- [x] Header dessa página terá um botão para acessar a página da Pokedex
 - **Página Pokédex**
-	- [ ] Renderizar a lista de pokémons adicionados na pokedex;
-	- [ ] Em cada card de Pokemon deve ter um botão para removê-lo da Pokedex e um outro botão para acessar os detalhes do Pokemon.
-	- [ ] Header deve ter um botão para voltar para a Home
-	- [ ] Não deve ser possível adicionar o mesmo Pokemon duas vezes na Pokedex
+	- [x] Renderizar a lista de pokémons adicionados na pokedex;
+	- [x] Em cada card de Pokemon deve ter um botão para removê-lo da Pokedex e um outro botão para acessar os detalhes do Pokemon.
+	- [x] Header deve ter um botão para voltar para a Home
+	- [x] Não deve ser possível adicionar o mesmo Pokemon duas vezes na Pokedex
 - **Página de Detalhes**
-	- [ ] Mostrar os detalhes do Pokemon selecionado, com informações descritas
-	- [ ] Header deve ter um botão para adicionar ou remover da Pokedex e outro para voltar a página home.
-- [ ] [Criar um readme](https://www.youtube.com/watch?v=1QKwP0SJK-c "Crie um readme") para o projeto;
+	- [x] Mostrar os detalhes do Pokemon selecionado, com informações descritas
+	- [x] Header deve ter um botão para adicionar ou remover da Pokedex e outro para voltar a página home.
 
 
-### Instruções para preparar o seu repositório
+## Captura de tela do projeto ##
 
-- Faça o fork desse repositório e realize o clone da sua cópia `seu-nome-de-usuario/projeto-lista-intro-javascript`.
-   <details>
-   <summary>Quer uma dica?</summary>
-   <img src="https://firebasestorage.googleapis.com/v0/b/assets-conteudo.appspot.com/o/gerais%2Ffork.png?alt=media&token=7030e997-246a-41fe-a75f-2a2ced61e54d" alt="Como adicionar o projeto no repositório"/>
-   </details>
-- Crie os arquivos do projeto dentro deste repo;
-- **Lembre-se de abrir os PRs para seu próprio repositório.**
-- Para isso, você precisará fazer o projeto utilizando **branches**. Não faça as alterações direto na branch ```main```!
 
-### Instruções de entrega
+## :white_check_mark: Pré requisitos ##
 
-![image](https://user-images.githubusercontent.com/71137294/227538428-52271ed2-df78-4500-b286-25f03aa7bf2e.png)
-1.  [Crie o surge](https://labenu.notion.site/Deploy-de-front-React-com-Surge-f902a03ec1d247dc9af9aee5a1469d96) do seu projeto e pegue o link da publicação(deploy);
-2.  Adicione o link do surge no readme do seu projeto;
-3.  Tire print das páginas do seu projeto e cole no readme;
-4.  Abra um novo Pull Request (PR) com a frase **PR para correção**. Caso não saiba como fazê-lo, assista a esse [vídeo](https://vimeo.com/842884374/3e403f4281?share=copy).
-5.  Envie o link do seu PR e do surge no [formulário de entrega](https://docs.google.com/forms/d/e/1FAIpQLSfGGRaglpzWpdREBBfq3eUCMXkRXuiS61Zfyy0L_Ce0uNIXTA/viewform).
+Antes de começar :checkered_flag:, você precisa ter o [Git](https://git-scm.com) e o [Node](https://nodejs.org/en/) instalados em sua maquina.
+
+# Link do deploy:
+
+<!-- [Github Pages](https://karinadarc.github.io/projeto-frontendreact/) -->
+
+![Home Page](./src//assets/print/home.png)
+![DetailPage](./src//assets/print/detalhes.png)
+![DetailPage](./src//assets/print/detailExcluir.png)
+![DetailPage](./src//assets/print/detailAdicionar.png)
+![DetailPage](./src//assets/print/pokedex.png)
+![DetailPage](./src//assets/print/pokedexExcluir.png)
+![ErrorPage](./src//assets/print/errorPagee.png)
+![isError](./src//assets/print/isError.png)
+
+
+```bash
+# Clone este repositório
+$ git clone https://github.com/karinadarc/projeto-pokedex
+
+# Entre na pasta
+$ cd projeto-pokedex
+
+# Instale as dependências
+$ npm install
+
+# Para iniciar o projeto
+$ npm start
+
+# O app vai inicializar em <http://localhost:3000>
+```
+
+## :memo: Licença ##
+
+Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+
+Feito com :heart: por <a href="https://github.com/karinadarc" target="_blank">Karina D&#39;arc Piere</a>
+
+&#xa0;
+
+<a href="#top">Voltar para o topo</a>

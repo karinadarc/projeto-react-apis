@@ -1,5 +1,5 @@
 import React,{ useContext } from "react";
-import { HeaderStyle, LinkStyle } from "./HeaderStyle";
+import { HeaderStyle, LinkStyle, LogoImg, SetaStyle} from "./HeaderStyle";
 import { useNavigate } from "react-router-dom";
 import { goToHome} from "../../Routes/Coordinator";
 import { images } from "../../assets/importImages";
@@ -15,11 +15,11 @@ const Header = ({ textButton, textLink, colorScheme, funcaoButton }) => {
     <HeaderStyle>
       <div>
         {textLink && (
-          <LinkStyle onClick={() => goToHome(navigate)}>{textLink}</LinkStyle>
+          <LinkStyle onClick={() => goToHome(navigate)}> <SetaStyle src={images.seta}/> {textLink}</LinkStyle>
         )}
       </div>
       <div>
-        <img src={images.logo} />
+        <LogoImg src={images.logo} />
       </div>
       <div>
         {textButton && (

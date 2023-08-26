@@ -15,13 +15,15 @@ const PokemonsListPage = () => {
   const context = useContext(GlobalContext);
   const navigate = useNavigate()
   const { myPokemons,capturePokemon,} = context;
-  const [pokeapi, isLoading, isError] = useRequestData("/pokemon")
+  const [pokeapi, isLoading, isError] = useRequestData(`/pokemon?limit=${42}&offset=${0}`)
+ 
 
   
 
   return (
     <>
-      <Header colorScheme='blue' textButton="Pokédex" 
+      <Header colorScheme='blue'
+      textButton="Pokédex" 
       funcaoButton={() =>goToPokedex(navigate)}/>
 
       <ContainerCards>
@@ -40,7 +42,7 @@ const PokemonsListPage = () => {
               <PokemonCard 
               key={pokemon.name}
               pokemonName={pokemon.name} 
-              textButtonCard="Capturar" 
+              textButtonCard="Capturar!" 
               functionButton={capturePokemon}
               pokemon={pokemon.name}/>
 
